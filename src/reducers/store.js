@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
 import ReduxThunk from 'redux-thunk';
-
+import { loadState, saveState } from '../services/localStorageService';
 import favorites from './books';
 
 const appReducer = combineReducers({
@@ -15,13 +15,25 @@ export const setupStore = () => {
     const { logger } = require(`redux-logger`);
     middlewares.push(logger);
 
-    return createStore(appReducer, compose(applyMiddleware(...middlewares)));
+    return createStore(
+      appReducer,
+      loadState('favorites'),
+      compose(applyMiddleware(...middlewares)),
+    );
   }
 
   // on prod, don't include loggers
-  return createStore(appReducer, {}, applyMiddleware(...middlewares));
+  return createStore(
+    appReducer,
+    loadState('favorites'),
+    applyMiddleware(...middlewares),
+  );
 };
 
-export const store = setupStore();
+const store = setupStore();
+
+store.subscribe(() => {
+  saveState('favorites', store.getState());
+});
 
 export default store;

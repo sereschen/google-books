@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import store from './reducers/store';
 import SearchPage from './components/SearchPage/SearchPage';
+import FavoritesPage from './components/FavoritesPage/FavoritesPage';
 import './App.scss';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           </nav>
           <Switch>
             <Route path="/favorites">
-              <About />
+              <FavoritesPage />
             </Route>
             <Route path="/">
               <SearchPage />

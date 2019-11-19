@@ -1,12 +1,16 @@
 export const BOOK_ACTIONS = {
-  ADD_FAVORITE: 'ADD_FAVORITE',
+  TOGGLE_FAVORITE: 'TOGGLE_FAVORITE',
 };
 
 const favorites = (state = [], action) => {
   switch (action.type) {
-    case BOOK_ACTIONS.ADD_FAVORITE: {
+    case BOOK_ACTIONS.TOGGLE_FAVORITE: {
       const { book } = action;
-      return [...state, book];
+      if (state.some(item => book.id === item.id)) {
+        return state.filter(item => book.id !== item.id);
+      } else {
+        return [...state, book];
+      }
     }
     default: {
       return state;

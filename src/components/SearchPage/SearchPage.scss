@@ -5,11 +5,12 @@
     border-radius: 5px;
     width: 500px;
   }
-  .book-shelf {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 20px 0;
-    justify-content: space-between;
-  }
+}
+
+.book-shelf {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 20px 0;
+  justify-content: space-between;
 }

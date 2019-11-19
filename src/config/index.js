@@ -1,15 +1,16 @@
-import ENV from "../../env";
-import prodConfig from "./config.prod";
-import devConfig from "./config.dev";
+import ENV from '../env';
+import prodConfig from './config.prod';
+import devConfig from './config.dev';
 
 let config;
 
 switch (ENV) {
-  case "dev":
-    config = devConfig;
-    break;
-  case "prod":
+  case 'prod':
     config = prodConfig;
+    break;
+  case 'dev':
+  default:
+    config = devConfig;
     break;
 }
 

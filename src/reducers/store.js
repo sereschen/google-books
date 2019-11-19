@@ -1,10 +1,10 @@
-import { applyMiddleware, createStore, combineReducers, compose } from "redux";
-import ReduxThunk from "redux-thunk";
+import { applyMiddleware, createStore, combineReducers, compose } from 'redux';
+import ReduxThunk from 'redux-thunk';
 
-import books from "./books";
+import favorites from './books';
 
 const appReducer = combineReducers({
-  books
+  favorites,
 });
 
 export const setupStore = () => {
@@ -24,3 +24,4 @@ export const setupStore = () => {
 
 export const store = setupStore();
 
+export default store;

@@ -1,0 +1,29 @@
+.book-card {
+  display: flex;
+  margin: 10px;
+  flex: 0 1 30%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  .book-image {
+    position: relative;
+    flex: 1;
+    img {
+      width: 100%;
+      margin: 0 auto;
+    }
+    .fav-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #009688;
+    }
+  }
+  .book-info {
+    padding: 5px;
+    flex: 2;
+    font-size: 1em;
+  }
+}
